@@ -1,15 +1,20 @@
 $hb-background-img: '';
 {{- with resources.GetMatch "images/background.*" }}
-  {{- $resize := "1920x1080" }}
+  {{- $resize := "%s" }}
   {{- if and
     (eq $.params.hb.background_image.modern_format "webp")
     (ne .MediaType.SubType "webp")
   }}
     {{- $resize = printf "%s webp" $resize }}
   {{- end }}
-  {{- $bg := .Resize $resize }}
+  {{- $res := .Resize (printf $resize "1920x") }}
   {{- with index $.params.hb.background_image "brightness" }}
-    {{- $bg = $bg.Filter (images.Brightness .) }}
+    {{- $res = $res.Filter (images.Brightness .) }}
   {{- end }}
-$hb-background-img: '{{ $bg.RelPermalink }}';
+$hb-background-img: '{{ $res.RelPermalink }}';
+  {{- $sizes := dict "sm" "576x" "md" "768x" "lg" "992x" "xl" "1200x" "xxl" "1400x" }}
+  {{- range $bk, $size := $sizes }}
+    {{- $bg := $res.Resize (printf $resize $size) }}
+$hb-background-img-{{ $bk }}: '{{ $bg.RelPermalink }}';
+  {{- end }}
 {{- end }}
