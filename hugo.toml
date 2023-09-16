@@ -3,3 +3,4 @@ path = "github.com/hbstack/hb"
 
 [params.hb.background_image]
 brightness = 0
+modern_format = "webp"

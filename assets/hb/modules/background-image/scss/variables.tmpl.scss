@@ -1,6 +1,13 @@
 $hb-background-img: '';
 {{- with resources.GetMatch "images/background.*" }}
-  {{- $bg := .Resize "1920x1080" }}
+  {{- $resize := "1920x1080" }}
+  {{- if and
+    (eq $.params.hb.background_image.modern_format "webp")
+    (ne .MediaType.SubType "webp")
+  }}
+    {{- $resize = printf "%s webp" $resize }}
+  {{- end }}
+  {{- $bg := .Resize $resize }}
   {{- with index $.params.hb.background_image "brightness" }}
     {{- $bg = $bg.Filter (images.Brightness .) }}
   {{- end }}
