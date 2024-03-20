@@ -1,6 +1,7 @@
 @if $hb-background-img != "" {
     body {
         background: center / cover no-repeat url($hb-background-img);
+        background-attachment: fixed;
 
         @include media-breakpoint-down(xxl) {
             background-image: url($hb-background-img-xxl);
