@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2](https://github.com/hbstack/background-image/compare/v0.2.1...v0.2.2) (2024-08-05)
+
+
+### Bug Fixes 🐞
+
+* **deps:** update dependency stylelint-scss to v6.4.1 ([a644190](https://github.com/hbstack/background-image/commit/a6441908cc380f79704c75b20ff51454571e0e87))
+* **deps:** update dependency stylelint-scss to v6.5.0 ([ccfb850](https://github.com/hbstack/background-image/commit/ccfb8501b2821c94b6439000104388027c931aee))
+
 ## [0.2.1](https://github.com/hbstack/background-image/compare/v0.2.0...v0.2.1) (2024-03-20)
 
 
